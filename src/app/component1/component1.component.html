@@ -1,0 +1,41 @@
+<p>component1 works!</p>
+
+<button routerLink="/component2">component2</button>
+<!-- <button (click)="test(temp)">component3 {{temp}}</button> -->
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+
+
+
+<form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+  <input type="text"  formControlName="name" placeholder="name">
+  <div *ngIf="name.invalid && (name.dirty|| name.touched)"><p>please input this field</p></div>
+  <input type="text" formControlName="phone" placeholder="email">
+  <input type="text" formControlName="email"  placeholder="phone">
+  
+  <div formArrayName="address">
+    <div *ngFor="let el of addressGetter.controls; let i=index" [formGroupName]="i">
+      <input type="text" formControlName="city">
+    </div>
+  </div>
+  <button (click)="addExperience()">Add</button>
+  
+  <button type="submit"  >Submit</button>
+</form>
+<!-- {{name | json}} -->
+
+
+
+<!-- valid
+invalid
+dirty
+pristine
+touched
+untouched -->
